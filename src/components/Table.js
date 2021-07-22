@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { MyContext } from "../Context";
 import { Row } from "./Row";
 
-export const Table = ({ pokemon, filter, selectedSet }) => {
+export const Table = () => {
+  const { pokemon, filter, selectedSet } = useContext(MyContext);
   return (
     <table>
       <thead>
@@ -17,8 +20,7 @@ export const Table = ({ pokemon, filter, selectedSet }) => {
           )
           .slice(0, 10)
           .map((pokemon) => (
-            <Row
-              pokemon={pokemon}
+            <Row pokemon={pokemon}
               key={pokemon.id}
               onSelect={(pokemon) => selectedSet(pokemon)}
             />
