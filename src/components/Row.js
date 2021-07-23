@@ -5,18 +5,18 @@ import { MyContext } from "../Context";
 // import { Type } from "../type";
 
 // Row.propTypes = {
-//   pokemon: PropTypes.arrayOf(Type),
+//   item: PropTypes.arrayOf(Type),
 // };
 
-export const Row = ({ pokemon, onSelect }) => {
+export const Row = ({ item, onSelect }) => {
   return (
     <tr>
-      <td>{pokemon.name.english}</td>
-      <td>{pokemon.type.join(", ")}</td>
+      <td>{item.name.english}</td>
+      <td>{item.type.join(", ")}</td>
       <Button
         variant="contained"
         color="primary"
-        onClick={() => onSelect(pokemon)}
+        onClick={() => onSelect(item)}
       >
         Select
       </Button>

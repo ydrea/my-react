@@ -3,18 +3,24 @@ import styled from "@emotion/styled";
 import { MyContext } from "../Context";
 
 const Input = styled.input`
-  width: 30%;
+  width: 80%;
   font-size: larger;
+  padding: 0.3rem;
 `;
 
 export const Filter = () => {
-  const { filter, filterSet } = useContext(MyContext);
+  const {
+    state: { filter },
+    dispatch,
+  } = useContext(MyContext);
 
   return (
     <Input
       value={filter}
       placeholder="live search"
-      onChange={(e) => filterSet(e.target.value)}
+      onChange={(e) =>
+        dispatch({ type: "filter_set", payload: e.target.value })
+      }
     />
   );
 };

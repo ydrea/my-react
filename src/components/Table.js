@@ -3,7 +3,7 @@ import { MyContext } from "../Context";
 import { Row } from "./Row";
 
 export const Table = () => {
-  const { pokemon, filter, selectedSet } = useContext(MyContext);
+  const { state:{ item, filter}, dispatch } = useContext(MyContext);
   return (
     <table>
       <thead>
@@ -14,15 +14,15 @@ export const Table = () => {
         </tr>
       </thead>
       <tbody>
-        {pokemon
-          .filter((pokemon) =>
-            pokemon.name.english.toLowerCase().includes(filter.toLowerCase())
+        {item
+          .filter((item) =>
+            item.name.english.toLowerCase().includes(filter.toLowerCase())
           )
           .slice(0, 10)
-          .map((pokemon) => (
-            <Row pokemon={pokemon}
-              key={pokemon.id}
-              onSelect={(pokemon) => selectedSet(pokemon)}
+          .map((item) => (
+            <Row item={item}
+              key={item.id}
+              onSelect={(item) => dispatch({payload: item,type: 'selected_set'})}
             />
           ))}
       </tbody>

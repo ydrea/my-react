@@ -1,11 +1,14 @@
 import { MyContext } from "../Context";
 import { useContext } from "react";
+import styled from "@emotion/styled";
 
 export const Detail = () => {
-  const {selected} = useContext(MyContext)
-  return selected ? ( 
+  const {
+    state: { selected },
+  } = useContext(MyContext);
+  return selected ? (
     <>
-      <h1> {selected.name.english} </h1>
+      <h3> {selected.name.english} </h3>
       <table>
         {Object.keys(selected.base).map((key) => (
           <tr key={key}>
@@ -15,5 +18,5 @@ export const Detail = () => {
         ))}
       </table>
     </>
-  ) : null ;
+  ) : null;
 };
