@@ -2,6 +2,12 @@ import { MyContext } from "../Context";
 import { useContext } from "react";
 import styled from "@emotion/styled";
 
+const Tablic = styled.div`
+  grid-column-gap: 1rem;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Detail = () => {
   const {
     state: { selected },
