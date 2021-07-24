@@ -13,7 +13,7 @@ export const Detail = () => {
     state: { selected },
   } = useContext(MyContext);
   return selected ? (
-    <>
+    <Tablic>
       <h3> {selected.name.english} </h3>
       <table>
         {Object.keys(selected.base).map((key) => (
@@ -23,6 +23,6 @@ export const Detail = () => {
           </tr>
         ))}
       </table>
-    </>
+    </Tablic>
   ) : null;
 };
