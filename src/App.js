@@ -1,11 +1,8 @@
 import styled from "@emotion/styled";
-import { useEffect } from "react";
 import { CssBaseline } from "@material-ui/core";
 import { Detail } from "./components/Detail";
 import { Filter } from "./components/Filter";
 import { Table } from "./components/Table";
-//add Zustand
-import { useStore, UseStore } from "./store";
 
 const Title = styled.h1`
   text-align: center;
