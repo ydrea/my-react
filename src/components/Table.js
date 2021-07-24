@@ -1,9 +1,11 @@
-import { useContext } from "react";
-import { MyContext } from "../Context";
+import { useStore } from "../store";
 import { Row } from "./Row";
 
 export const Table = () => {
-  const { state:{ item, filter}, dispatch } = useContext(MyContext);
+  const item = useStore((state) => state.item);
+  const filter = useStore((state) => state.filter);
+  const setSelected = useStore((state) => state.setSelected);
+
   return (
     <table>
       <thead>
@@ -20,9 +22,11 @@ export const Table = () => {
           )
           .slice(0, 10)
           .map((item) => (
-            <Row item={item}
+            <Row
+              item={item}
               key={item.id}
-              onSelect={(item) => dispatch({payload: item,type: 'selected_set'})}
+              onSelect={(item) => setSelected(item)
+              }
             />
           ))}
       </tbody>

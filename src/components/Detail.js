@@ -1,6 +1,6 @@
-import { MyContext } from "../Context";
-import { useContext } from "react";
 import styled from "@emotion/styled";
+
+import { useStore } from "../store";
 
 const Tablic = styled.div`
   grid-column-gap: 1rem;
@@ -9,9 +9,10 @@ const Tablic = styled.div`
 `;
 
 export const Detail = () => {
-  const {
-    state: { selected },
-  } = useContext(MyContext);
+  const selected = useStore((state) => state.selected);
+  const setFilter = useStore((state) => state.setFilter);
+  const filter = useStore((state) => state.filter);
+
   return selected ? (
     <Tablic>
       <h3> {selected.name.english} </h3>

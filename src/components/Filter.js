@@ -1,6 +1,6 @@
-import { useContext } from "react";
+
 import styled from "@emotion/styled";
-import { MyContext } from "../Context";
+import { useStore } from "../store";
 
 const Input = styled.input`
   width: 80%;
@@ -9,17 +9,14 @@ const Input = styled.input`
 `;
 
 export const Filter = () => {
-  const {
-    state: { filter },
-    dispatch,
-  } = useContext(MyContext);
+  const filter = useStore((state) => state.filter);
+  const setFilter = useStore((state) => state.setFilter);
 
   return (
     <Input
       value={filter}
       placeholder="live search"
-      onChange={(e) =>
-        dispatch({ type: "filter_set", payload: e.target.value })
+      onChange={(e) => setFilter(e.target.value)
       }
     />
   );
