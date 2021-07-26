@@ -24,7 +24,7 @@ export const useStore = create((set) => ({
     })),
 }));
 
-fetch("http://localhost:3000/pokemon.json")
+fetch("http://localhost:3000/item.json")
   .then((resp) => resp.json())
   .then((item) =>
     useStore.setState((state) => ({
