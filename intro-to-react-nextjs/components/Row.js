@@ -1,11 +1,5 @@
 import { Button } from "@material-ui/core";
 
-// import { Type } from "../type";
-
-// Row.propTypes = {
-//   item: PropTypes.arrayOf(Type),
-// };
-
 export const Row = ({ item, onSelect }) => {
   return (
     <tr>

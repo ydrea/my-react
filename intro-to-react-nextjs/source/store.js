@@ -24,12 +24,4 @@ export const useStore = create((set) => ({
     })),
 }));
 
-if (typeof window !== undefined) {
-fetch("http://localhost:3000/items.json")
-  .then((resp) => resp.json())
-  .then((item) =>
-    useStore.setState((state) => ({
-      ...state,
-      item,
-    }))
-  );}
+
